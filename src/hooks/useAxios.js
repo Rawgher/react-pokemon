@@ -4,8 +4,8 @@ import axios from 'axios';
 const useAxios = (initialCards = [], url) => {
     const [res, setRes] = useState(initialCards);
 
-    const getResData = async () => {
-        const response = await axios.get(url);
+    const getResData = async (extraUrl='') => {
+        const response = await axios.get(`${url}${extraUrl}`);
         setRes(d => [...d, response.data]);
     }
 
